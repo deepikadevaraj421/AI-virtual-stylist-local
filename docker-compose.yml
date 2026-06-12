@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  client:
+    image: deepikadevaraj413/stylist-client:latest
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+
+  server:
+    image: deepikadevaraj413/stylist-backend:latest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      # REPLACE THE BELOW URL WITH YOUR ACTUAL MONGODB ATLAS CONNECTION STRING
+      - MONGO_URI=mongodb+srv://deepikadevaraj413_db_user:santhosh413@cluster0.yqmy72u.mongodb.net/Ai-virtual-stylist-v1?appName=Cluster0
+      - JWT_SECRET=${JWT_SECRET:-ai_stylist_jwt_secret_2024_secure_key}
+      # Point to the ml-service container
+      - ML_SERVICE_URL=http://ml-service:5001
+    depends_on:
+      - ml-service
+
+  ml-service:
+    image: deepikadevaraj413/stylist-ml:latest
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"

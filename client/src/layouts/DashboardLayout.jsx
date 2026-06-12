@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard, Shirt, Sparkles, Calendar, User, LogOut, Menu, X, Scissors, Droplets
 } from 'lucide-react';
+import Chatbot from '../../../chatbot/frontend/Chatbot';
 import './DashboardLayout.css';
 
 const navItems = [
@@ -96,6 +97,7 @@ export default function DashboardLayout() {
           <Outlet />
         </div>
       </main>
+      <Chatbot />
     </div>
   );
 }

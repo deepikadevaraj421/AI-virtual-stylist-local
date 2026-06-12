@@ -29,6 +29,7 @@ app.use('/api/wardrobe', require('./routes/wardrobe'));
 app.use('/api/recommendations', require('./routes/recommendations'));
 app.use('/api/weekly-plan', require('./routes/weeklyPlan'));
 app.use('/api/weather', require('./routes/weather'));
+app.use('/api/chat', require('../chatbot/backend/chat'));
 
 // Health check
 app.get('/api/health', (req, res) => {
