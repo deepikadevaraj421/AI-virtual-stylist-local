@@ -1,0 +1,211 @@
+/* ═══════════════════════════════════════════════════
+   Weekly Plan Page
+   ═══════════════════════════════════════════════════ */
+
+.weekly-page .page-top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Laundry Status ──────────────────────────────── */
+.laundry-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.laundry-pending {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+}
+
+.laundry-done {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--success);
+}
+
+/* ── Weekly Grid ─────────────────────────────────── */
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all var(--transition-base);
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.day-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.day-card--today {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-teal);
+}
+
+.day-card--worn {
+  opacity: 0.7;
+}
+
+.day-card--empty {
+  border-style: dashed;
+}
+
+/* ── Day Header ──────────────────────────────────── */
+.day-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.day-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-name-row h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.today-badge {
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.day-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.day-weather {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── Day Content ─────────────────────────────────── */
+.day-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.day-empty p {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.day-outfit {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.day-outfit-images {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.day-img-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.day-img-wrap img {
+  width: 80px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--border);
+  transition: all var(--transition-base);
+  background: var(--bg-card-alt);
+}
+
+.day-img-wrap img:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.day-img-wrap span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.day-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.day-score .score-bar {
+  flex: 1;
+  height: 6px;
+}
+
+.day-reason {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Day Footer ──────────────────────────────────── */
+.day-status-row {
+  padding-top: 4px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.day-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .weekly-page .page-top-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .weekly-grid {
+    grid-template-columns: 1fr;
+  }
+}
