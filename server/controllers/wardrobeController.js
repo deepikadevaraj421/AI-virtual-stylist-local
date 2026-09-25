@@ -37,8 +37,18 @@ exports.predictItem = async (req, res) => {
         filename: req.file.filename
       });
     } catch (mlError) {
-      console.error('ML service error during prediction:', mlError.message);
-      res.status(500).json({ message: 'ML service unavailable' });
+      console.warn('ML service offline, falling back to manual entry:', mlError.message);
+      return res.json({
+        category: '',
+        color: '',
+        material: 'cotton',
+        occasion: 'casual',
+        confidence: 0,
+        imageUrl: `/uploads/${req.file.filename}`,
+        filename: req.file.filename,
+        fallback: true,
+        message: 'ML service offline. Please select category manually.'
+      });
     }
   } catch (error) {
     console.error('Prediction error:', error);

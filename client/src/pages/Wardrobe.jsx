@@ -127,10 +127,17 @@ export default function Wardrobe() {
           weatherSuitability: data.weatherSuitability || prev.weatherSuitability,
           imageUrl: data.imageUrl,
         }));
-        toast.success(`AI Recognition: ${data.category} detected!`, {
-          icon: '🤖',
-          duration: 4000
-        });
+        if (data.fallback) {
+          toast('Select category & color manually', {
+            icon: '✏️',
+            duration: 3500
+          });
+        } else if (data.category) {
+          toast.success(`AI Recognition: ${data.category} detected!`, {
+            icon: '🤖',
+            duration: 4000
+          });
+        }
       }
     } catch (err) {
       console.error('Prediction failed:', err);
