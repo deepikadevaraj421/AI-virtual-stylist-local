@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { wardrobeAPI } from '../services/api';
+import { wardrobeAPI, getImageUrl } from '../services/api';
 import { RefreshCw, Trash2, Droplets, ShoppingBasket, CheckCircle2, Calendar, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
 import './Laundry.css';
@@ -109,7 +109,7 @@ export default function Laundry() {
             >
               <div className="laundry-card-image">
                 <div className="laundry-badge-overlay">In Laundry</div>
-                <img src={item.imageUrl} alt={item.category} />
+                <img src={getImageUrl(item.imageUrl)} alt={item.category} />
                 <div className="laundry-overlay">
                   <button className="wash-btn" onClick={() => handleWashItem(item._id)}>
                     <RefreshCw size={18} />

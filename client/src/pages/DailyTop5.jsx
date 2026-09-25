@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { recommendAPI, weatherAPI } from '../services/api';
+import { recommendAPI, weatherAPI, getImageUrl } from '../services/api';
 import {
   Sparkles, RefreshCw, Heart, Check, Sun, Cloud, CloudRain, Snowflake,
   Briefcase, GraduationCap, PartyPopper, Coffee, Star, MapPin, Thermometer
@@ -267,7 +267,7 @@ function OutfitImage({ item, label }) {
   return (
     <div className="outfit-item-card">
       <img
-        src={item.imageUrl}
+        src={getImageUrl(item.imageUrl)}
         alt={label}
         onError={(e) => {
           e.target.onerror = null;

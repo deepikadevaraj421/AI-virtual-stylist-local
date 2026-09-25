@@ -8,6 +8,18 @@ const API = axios.create({
   timeout: 30000,
 });
 
+export const getImageUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+    return url;
+  }
+  const backendBase = rawBaseURL ? rawBaseURL.replace(/\/api\/?$/, '') : '';
+  if (backendBase) {
+    return url.startsWith('/') ? `${backendBase}${url}` : `${backendBase}/${url}`;
+  }
+  return url;
+};
+
 // Attach token to every request
 API.interceptors.request.use((config) => {
   const user = JSON.parse(localStorage.getItem('stylist_user') || 'null');

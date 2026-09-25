@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { weeklyAPI } from '../services/api';
+import { weeklyAPI, getImageUrl } from '../services/api';
 import {
   Calendar, RefreshCw, WashingMachine, Check, Edit3, X, Sparkles,
   Sun, Cloud, CloudRain, Snowflake
@@ -276,7 +276,7 @@ export default function WeeklyPlan() {
 function DayOutfitImg({ item, label }) {
   if (!item) return null;
   // If item is populated (object), use imageUrl. If it's just an ID (string), we can't show it yet.
-  const src = (typeof item === 'object' && item !== null) ? item.imageUrl : '';
+  const src = (typeof item === 'object' && item !== null) ? getImageUrl(item.imageUrl) : '';
 
   if (!src) return null;
 

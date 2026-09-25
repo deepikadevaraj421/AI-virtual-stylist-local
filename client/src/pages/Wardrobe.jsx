@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { wardrobeAPI } from '../services/api';
+import { wardrobeAPI, getImageUrl } from '../services/api';
 import {
   Plus, Upload, X, Trash2, Edit3, Camera, Filter, Image as ImageIcon, Tag, Eye, RefreshCw
 } from 'lucide-react';
@@ -280,8 +280,7 @@ export default function Wardrobe() {
   };
 
   const getImageSrc = (url) => {
-    if (!url) return '';
-    return url;
+    return getImageUrl(url);
   };
 
   return (
