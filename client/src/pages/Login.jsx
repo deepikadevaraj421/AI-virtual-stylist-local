@@ -42,7 +42,7 @@ export default function Login() {
         <div className="auth-brand">
           <div className="auth-brand-inner">
             <div className="brand-logo">
-              <Scissors size={32} />
+              <img src="/logo.png" alt="AI Virtual Stylist" className="brand-logo-img" />
             </div>
             <h1>AI Virtual Stylist</h1>
             <p>Your personal AI-powered wardrobe assistant. Get perfect outfit recommendations every day.</p>

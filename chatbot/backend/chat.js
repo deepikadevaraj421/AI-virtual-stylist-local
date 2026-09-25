@@ -1,4 +1,9 @@
-const express = require('express');
+let express;
+try {
+  express = require('express');
+} catch (e) {
+  express = require('../../server/node_modules/express');
+}
 const router = express.Router();
 const { protect } = require('../../server/middleware/auth');
 const WardrobeItem = require('../../server/models/WardrobeItem');

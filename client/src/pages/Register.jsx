@@ -55,7 +55,7 @@ export default function Register() {
         <div className="auth-brand">
           <div className="auth-brand-inner">
             <div className="brand-logo">
-              <Scissors size={32} />
+              <img src="/logo.png" alt="AI Virtual Stylist" className="brand-logo-img" />
             </div>
             <h1>AI Virtual Stylist</h1>
             <p>Create your account and let AI transform your daily outfit planning.</p>

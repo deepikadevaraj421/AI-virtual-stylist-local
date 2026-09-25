@@ -9,7 +9,8 @@ const connectDB = async () => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`MongoDB connection error: ${error.message}`);
-    process.exit(1);
+    console.error(`Retrying connection in 5 seconds... (Ensure your IP is whitelisted in MongoDB Atlas)`);
+    setTimeout(connectDB, 5000);
   }
 };
 

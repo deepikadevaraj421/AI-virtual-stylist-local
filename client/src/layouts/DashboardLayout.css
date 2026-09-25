@@ -50,15 +50,32 @@
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-md);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   box-shadow: var(--shadow-teal);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.logo-icon-img {
+  background: #ffffff;
+  padding: 2px;
+  border: 2px solid rgba(45, 212, 191, 0.4);
+  border-radius: 50%;
+}
+
+.sidebar-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1.25);
 }
 
 .logo-text h1 {

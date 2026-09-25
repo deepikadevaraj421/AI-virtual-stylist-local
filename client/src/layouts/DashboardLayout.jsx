@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard, Shirt, Sparkles, Calendar, User, LogOut, Menu, X, Scissors, Droplets
 } from 'lucide-react';
-import Chatbot from '../../../chatbot/frontend/Chatbot';
+import Chatbot from '../components/Chatbot';
 import './DashboardLayout.css';
 
 const navItems = [
@@ -37,8 +37,8 @@ export default function DashboardLayout() {
       <aside className={`sidebar ${sidebarOpen ? 'sidebar--open' : ''}`}>
         <div className="sidebar-header">
           <div className="sidebar-logo">
-            <div className="logo-icon">
-              <Scissors size={22} />
+            <div className="logo-icon logo-icon-img">
+              <img src="/logo.png" alt="AI Stylist Logo" className="sidebar-logo-img" />
             </div>
             <div className="logo-text">
               <h1>AI Stylist</h1>
